@@ -1,0 +1,39 @@
+﻿@page
+@model Telecom_T13.Pages.LoginModel
+
+<h1>Customer Profiles</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>National ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Date of Birth</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.CustomerProfiles != null && Model.CustomerProfiles.Any())
+        {
+            foreach (var profile in Model.CustomerProfiles)
+            {
+                <tr>
+                    <td>@profile.nationalID</td>
+                    <td>@profile.first_name</td>
+                    <td>@profile.last_name</td>
+                    <td>@profile.email</td>
+                    <td>@profile.address</td>
+                    <td>@profile.date_of_birth.ToShortDateString()</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="6">No customer profiles found.</td>
+            </tr>
+        }
+    </tbody>
+</table>
