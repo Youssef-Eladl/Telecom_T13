@@ -1,14 +1,14 @@
 using System.Diagnostics.Metrics;
 using System;
 using Microsoft.EntityFrameworkCore;
-using Telecom_T13.Data;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using Telecom_T13.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer("ConnectionStrings:DefaultConnection"));
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer("MyDatabaseConnection"));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
