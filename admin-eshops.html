@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Telecommunication - Payments</title>
+    <title>Telecommunication - E-Shops and Redeemed Vouchers</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Additional styles specific to Payments page */
+        /* Additional styles specific to E-Shops page */
 
-        .payments {
+        .eshops {
             padding: 20px;
         }
 
-        .payments h1 {
+        .eshops h1 {
             text-align: center;
             margin-bottom: 20px;
             color: #333;
@@ -68,24 +68,19 @@
             }
 
             /* Label the data */
-            td:nth-of-type(1):before { content: "Payment ID"; }
-            td:nth-of-type(2):before { content: "Amount"; }
-            td:nth-of-type(3):before { content: "Date of Payment"; }
-            td:nth-of-type(4):before { content: "Payment Method"; }
-            td:nth-of-type(5):before { content: "Payment Status"; }
-            td:nth-of-type(6):before { content: "Mobile Number"; }
-            td:nth-of-type(7):before { content: "Account Type"; }
-            td:nth-of-type(8):before { content: "Account Status"; }
-            td:nth-of-type(9):before { content: "First Name"; }
-            td:nth-of-type(10):before { content: "Last Name"; }
-            td:nth-of-type(11):before { content: "Email"; }
+            td:nth-of-type(1):before { content: "Shop ID"; }
+            td:nth-of-type(2):before { content: "Shop Name"; }
+            td:nth-of-type(3):before { content: "URL"; }
+            td:nth-of-type(4):before { content: "Rating"; }
+            td:nth-of-type(5):before { content: "Voucher ID"; }
+            td:nth-of-type(6):before { content: "Voucher Value"; }
         }
     </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
+ <!-- Header -->
+ <header>
     <nav>
       <a href="admin-dashboard.html" class="logo">Telecommunication</a>
       <ul class="nav-links">
@@ -98,27 +93,33 @@
 
     <!-- Main Content -->
     <main>
-        <section class="payments">
-            <h1>All Payments and Their Initiated Accounts</h1>
+        <section class="eshops">
+            <h1>E-Shops and Redeemed Vouchers</h1>
 
-            <table id="paymentsTable">
+            <table id="eshopsTable">
                 <thead>
                     <tr>
-                        <th>Payment ID</th>
-                        <th>Amount</th>
-                        <th>Date of Payment</th>
-                        <th>Payment Method</th>
-                        <th>Payment Status</th>
-                        <th>Mobile Number</th>
-                        <th>Account Type</th>
-                        <th>Account Status</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
+                        <th>Shop ID</th>
+                        <th>Shop Name</th>
+                        <th>URL</th>
+                        <th>Rating</th>
+                        <th>Voucher ID</th>
+                        <th>Voucher Value</th>
                     </tr>
                 </thead>
                 <tbody>
                     <!-- Data Rows will be populated here -->
+                    <!-- Example row -->
+                    <!--
+                    <tr>
+                        <td>1</td>
+                        <td>Shop A</td>
+                        <td>https://shopa.com</td>
+                        <td>4.5</td>
+                        <td>101</td>
+                        <td>50.00</td>
+                    </tr>
+                    -->
                 </tbody>
             </table>
         </section>
@@ -132,36 +133,31 @@
     <!-- JavaScript for fetching data -->
     <script>
         // Fetch data from the backend
-        fetch('process-list-payments.aspx', {
+        fetch('process-list-eshops.aspx', {
             method: 'GET',
         })
         .then(response => response.json())
         .then(data => {
-            const tableBody = document.querySelector('#paymentsTable tbody');
+            const tableBody = document.querySelector('#eshopsTable tbody');
             // Clear existing data
             tableBody.innerHTML = '';
             if (data.length > 0) {
                 data.forEach(item => {
                     const row = document.createElement('tr');
                     row.innerHTML = `
-                        <td>${item.paymentID}</td>
-                        <td>${item.amount}</td>
-                        <td>${item.date_of_payment}</td>
-                        <td>${item.payment_method}</td>
-                        <td>${item.payment_status}</td>
-                        <td>${item.mobileNo}</td>
-                        <td>${item.account_type}</td>
-                        <td>${item.account_status}</td>
-                        <td>${item.first_name}</td>
-                        <td>${item.last_name}</td>
-                        <td>${item.email}</td>
+                        <td>${item.shopID}</td>
+                        <td>${item.ShopName}</td>
+                        <td><a href="${item.URL}" target="_blank">${item.URL}</a></td>
+                        <td>${item.rating}</td>
+                        <td>${item.voucherID}</td>
+                        <td>${item.value}</td>
                     `;
                     tableBody.appendChild(row);
                 });
             } else {
                 // No data found
                 const row = document.createElement('tr');
-                row.innerHTML = '<td colspan="11" style="text-align:center;">No records found.</td>';
+                row.innerHTML = '<td colspan="6" style="text-align:center;">No records found.</td>';
                 tableBody.appendChild(row);
             }
         })

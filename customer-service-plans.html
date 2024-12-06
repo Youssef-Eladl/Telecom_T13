@@ -1,33 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Telecommunication - Service Plans</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <title>Telecommunication - Service Plans</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .service-plans {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        .service-plans th, .service-plans td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .service-plans th {
+            background-color: #f2f2f2;
+            font-size: 18px;
+        }
+
+        .service-plans tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .back-link {
+            display: block;
+            width: 80%;
+            margin: 20px auto;
+            text-align: left;
+        }
+
+        .back-link a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <nav>
-      <a href="customer-dashboard.html" class="logo">Telecommunication</a>
-      <ul class="nav-links">
-        <!-- Navigation links -->
-        <li><a href="customer-dashboard.html">Dashboard</a></li>
-        <li><a href="customer-service-plans.html">Service Plans</a></li>
-        <!-- ... -->
-      </ul>
-    </nav>
-  </header>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="customer-dashboard.html" class="logo">Telecommunication</a>
+            <ul class="nav-links">
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <!-- Main Content -->
-  <main>
-    <h1>Service Plans</h1>
-    <!-- Content for viewing and selecting service plans -->
-  </main>
+    <!-- Main Content -->
+    <main>
+        <h1>Available Service Plans</h1>
+        <table class="service-plans">
+            <thead>
+                <tr>
+                    <th>Plan ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>SMS Offered</th>
+                    <th>Minutes Offered</th>
+                    <th>Data Offered</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Example Row -->
+                <tr>
+                    <td>1</td>
+                    <td>Basic Plan</td>
+                    <td>$20</td>
+                    <td>100</td>
+                    <td>500</td>
+                    <td>5GB</td>
+                    <td>Suitable for light users.</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+        <div class="back-link">
+            <a href="customer-dashboard.html">← Back to Dashboard</a>
+        </div>
+    </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2023 Telecommunication</p>
-  </footer>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Telecommunication</p>
+    </footer>
 </body>
 </html>
