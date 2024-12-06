@@ -1,12 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Telecommunication - FAQ</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telecommunication FAQ</title>
+    <title>Telecommunication - FAQ</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            color: #333;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-item h3 {
+            font-size: 18px;
+            color: #555;
+            cursor: pointer;
+            padding: 10px;
+            background-color: #e6e6e6;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-item h3:hover {
+            background-color: #d4d4d4;
+        }
+
+        .faq-item p {
+            margin: 10px 0 0 0;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #f9f9f9;
+            display: none;
+            border-left: 4px solid #007bff;
+        }
+
+        .add-question {
+            margin-top: 30px;
+        }
+
+        .add-question textarea {
+            width: 100%;
+            height: 80px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 14px;
+            resize: none;
+        }
+
+        .add-question button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-question button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-  <!-- Header -->
+      <!-- Header -->
   <header>
     <nav>
       <a href="index.html" class="logo">Telecommunication</a>
@@ -19,15 +103,60 @@
     </nav>
   </header>
 
-  <!-- Main Content -->
-  <main>
-    <h1>Frequently Asked Questions</h1>
-    <!-- FAQ content -->
-  </main>
+    <div class="container">
+        <h1>Telecommunication FAQ</h1>
+        <div class="faq-item">
+            <h3>1. What are the available service plans?</h3>
+            <p>We offer prepaid, postpaid, and family plans to suit your needs. Each plan includes flexible data, calling, and SMS options.</p>
+        </div>
+        <div class="faq-item">
+            <h3>2. How can I check my data balance?</h3>
+            <p>You can check your data balance through our mobile app, SMS, or by dialing *123# from your phone.</p>
+        </div>
+        <div class="faq-item">
+            <h3>3. What should I do if I experience network issues?</h3>
+            <p>If you face network issues, please restart your device, check for outages in your area, or contact our customer support team for assistance.</p>
+        </div>
+        <div class="faq-item">
+            <h3>4. How do I upgrade my current plan?</h3>
+            <p>You can upgrade your plan through our website, mobile app, or by visiting your nearest service center.</p>
+        </div>
+        <div class="faq-item">
+            <h3>5. Are international roaming options available?</h3>
+            <p>Yes, we offer international roaming packages. Visit our website or contact customer service to activate roaming on your number.</p>
+        </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2023 Telecommunication</p>
-  </footer>
+        <div class="add-question">
+            <h3>Have a question? Ask us!</h3>
+            <textarea placeholder="Type your question here..."></textarea>
+            <button>Submit Question</button>
+        </div>
+    </div>
+
+    <script>
+        // Toggle FAQ answer visibility
+        const faqItems = document.querySelectorAll('.faq-item h3');
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const answer = item.nextElementSibling;
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+        // Handle question submission
+        const submitButton = document.querySelector('.add-question button');
+        submitButton.addEventListener('click', () => {
+            const textarea = document.querySelector('.add-question textarea');
+            if (textarea.value.trim()) {
+                alert('Thank you for your question! We will get back to you shortly.');
+                textarea.value = ''; // Clear the textarea
+            } else {
+                alert('Please type a question before submitting.');
+            }
+        });
+    </script>
+      <footer>
+        <p>&copy; 2023 Telecommunication</p>
+      </footer>
 </body>
 </html>

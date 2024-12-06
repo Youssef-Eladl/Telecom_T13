@@ -1,12 +1,97 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Telecommunication - Contact Us</title>
-  <link rel="stylesheet" href="styles.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            color: #333;
+        }
+
+        p {
+            text-align: center;
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #007bff;
+            background-color: #fff;
+            outline: none;
+        }
+
+        button {
+            padding: 12px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .contact-info a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-  <!-- Header -->
+      <!-- Header -->
   <header>
     <nav>
       <a href="index.html" class="logo">Telecommunication</a>
@@ -18,16 +103,18 @@
       </ul>
     </nav>
   </header>
-
-  <!-- Main Content -->
-  <main>
-    <h1>Contact Us</h1>
-    <!-- Contact information or contact form -->
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2023 Telecommunication</p>
-  </footer>
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p>We'd love to hear from you! Please fill out the form below to get in touch with us.</p>
+        <form action="mailto:mabdelhalim036@gmail.com" method="POST" enctype="text/plain">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="6" placeholder="Type your message here..." required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <div class="contact-info">
+            <p>You can also email us directly at <a href="mailto:mabdelhalim037@gmail.com">mabdelhalim036@gmail.com</a>.</p>
+        </div>
+    </div>
 </body>
 </html>
